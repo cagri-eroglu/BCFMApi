@@ -14,5 +14,11 @@ namespace BCFMApi.Controllers
 			};
 			return Json(dto);
 		}
+
+		[HttpGet("health")]
+		public IActionResult HealthCheck()
+		{
+			return Ok(new { status = "Healthy" });
+		}
 	}
 }
