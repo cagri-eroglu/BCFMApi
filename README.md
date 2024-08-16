@@ -11,7 +11,7 @@
 - #### From Query (use bash&cmd)
 
 ```bash
-curl -X POST "http://4.154.249.241:9090?BCFMInt=123&BCFMString=BC4M"
+curl -X POST "http://4.154.249.241:9090/BCFMPost?BCFMInt=123&BCFMString=BC4M"
 ```
 
 - #### From Body (use bash&cmd)
@@ -104,7 +104,7 @@ Check below for the dockerfile and deployment.yaml 📋:
 ## Docker Image 🐳
 
 ```bash
-    docker pull cagrieroglu/bcfmapi:v1
+docker pull cagrieroglu/bcfmapi:v1
 ```
 
 # Tech Stack
