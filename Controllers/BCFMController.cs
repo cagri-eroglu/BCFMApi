@@ -21,16 +21,16 @@ namespace BCFMApi.Controllers
 
 		[HttpPost("BCFMPost")]
 		public IActionResult PostMessageCombined(
-			[FromQuery] int? BCFMInt = null,
-			[FromQuery] string BCFMString= "BC4M",
-			[FromBody] PostBCFMDto data = null
-	)
+							[FromQuery] int? BCFMInt = null,
+							[FromQuery] string BCFMString = "BC4M",
+							[FromBody] PostBCFMDto data = null
+					)
 		{
-			if (data != null) {
-
+			if (data != null)
+			{
 				if (string.IsNullOrEmpty(data.BCFMString))
 				{
-					return BadRequest("Invalid request. String shoudlnt be empty");
+					return BadRequest("Invalid request. string shoudlnt be empty");
 				}
 
 				return Ok(data);
@@ -45,7 +45,7 @@ namespace BCFMApi.Controllers
 				var result = new PostBCFMDto
 				{
 					BCFMInt = BCFMInt.Value,
-					BCFMString= BCFMString
+					BCFMString = BCFMString
 				};
 
 				return Ok(result);
