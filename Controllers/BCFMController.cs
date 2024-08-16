@@ -30,7 +30,7 @@ namespace BCFMApi.Controllers
 			
 				if (BCFMInt == null)
 				{
-					return BadRequest("Invalid request. intBasedProp shoudldnt be null");
+					return BadRequest("Invalid request. int based property shoudldnt be null");
 				}
 
 				return Ok(data);
