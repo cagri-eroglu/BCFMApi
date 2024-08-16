@@ -26,11 +26,11 @@ namespace BCFMApi.Controllers
 			[FromBody] PostBCFMDto data = null
 	)
 		{
-			if (data != null) { 
-			
-				if (BCFMInt == null)
+			if (data != null) {
+
+				if (string.IsNullOrEmpty(data.BCFMString))
 				{
-					return BadRequest("Invalid request. int based property shoudldnt be null");
+					return BadRequest("Invalid request. String shoudlnt be empty");
 				}
 
 				return Ok(data);
