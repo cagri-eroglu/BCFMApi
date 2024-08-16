@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BCFMApi-deployment
+  name: bcfmapi-deployment
   annotations: 
     kubernetes.io/change-cause: "Initial deployment of the app"
 
@@ -9,20 +9,20 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: BCFMApi
+      app: bcfmapi
   template:
     metadata:
       labels:
         env: prod
-        app: BCFMApi
-        app.kubernetes.io/name: BCFMApi
+        app: bcfmapi
+        app.kubernetes.io/name: bcfmapi
     spec:
       containers: 
-        - name: BCFMApi
+        - name: bcfmapi
           image: cagrieroglu/BCFMApi:v1
           ports:  
             - containerPort: 80
-              name: http-BCFMApi
+              name: http-bcfmapi
           resources:
             requests:
               cpu: "100m"
@@ -41,9 +41,9 @@ metadata:
   name: bcfm-load-balancer
 spec:
   selector:
-    app: BCFMApi
+    app: bcfmapi
   ports: 
-    - name: BCFMApi-port
+    - name: bcfmapi-port
       protocol: TCP
       port: 9090
       targetPort: 80
