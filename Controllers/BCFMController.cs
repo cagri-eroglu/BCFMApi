@@ -23,15 +23,32 @@ namespace BCFMApi.Controllers
 		{
 			if (data == null)
 			{
-				return BadRequest("Invalid data provided.");
+				return BadRequest("Invalid request.");
 			}
 
 			if (string.IsNullOrEmpty(data.stringBasedProperty))
 			{
-				return BadRequest("Invalid data provided.");
+				return BadRequest("Invalid request.");
 			}
 
 			return Ok(data);
+		}
+
+		[HttpPost("BCFM_post_query")]
+		public IActionResult PostMessageWithQuery([FromQuery] int intBasedProperty = 1, [FromQuery] string stringBasedProperty = "BC4M ♥")
+		{
+			if (intBasedProperty == null || string.IsNullOrEmpty(stringBasedProperty))
+			{
+				return BadRequest("Invalid data provided.");
+			}
+
+			var result = new PostBCFMDto
+			{
+				intBasedProperty = intBasedProperty,
+				stringBasedProperty = stringBasedProperty
+			};
+
+			return Ok(result);
 		}
 
 	}
