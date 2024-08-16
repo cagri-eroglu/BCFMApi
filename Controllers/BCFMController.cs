@@ -35,7 +35,7 @@ namespace BCFMApi.Controllers
 		}
 
 		[HttpPost("BCFM_post_query")]
-		public IActionResult PostMessageWithQuery([FromQuery] int intBasedProperty = 1, [FromQuery] string stringBasedProperty = "BC4M ♥")
+		public IActionResult PostMessageWithQuery([FromQuery] int? intBasedProperty = null, [FromQuery] string stringBasedProperty = "BC4M ♥")
 		{
 			if (intBasedProperty == null || string.IsNullOrEmpty(stringBasedProperty))
 			{
