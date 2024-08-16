@@ -16,9 +16,6 @@ namespace BCFMApi.Controllers
 		}
 
 		[HttpGet("health")]
-		public IActionResult HealthCheck()
-		{
-			return Ok(new { status = "Healthy" });
-		}
+		public IActionResult HealthCheck() => Ok(new { status = "Healthy", timestamp = DateTime.Now });
 	}
 }
