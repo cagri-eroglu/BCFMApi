@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: BCFMApi-deployment
+  annotations: 
+    kubernetes.io/change-cause: "Initial deployment of the app"
+
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: BCFMApi
+  template:
+    metadata:
+      labels:
+        env: prod
+        app: BCFMApi
+        app.kubernetes.io/name: BCFMApi
+    spec:
+      containers: 
+        - name: BCFMApi
+          image: cagrieroglu/BCFMApi:v1
+          ports:  
+            - containerPort: 80
+              name: http-BCFMApi
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+            limits:
+              cpu: "200m"
+              memory: "200Mi"
+          env:
+            - name: ASPNETCORE_URLS
+              value: "http://+:80"
+
