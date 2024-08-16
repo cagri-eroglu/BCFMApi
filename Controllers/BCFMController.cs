@@ -44,7 +44,7 @@ namespace BCFMApi.Controllers
 
 			var result = new PostBCFMDto
 			{
-				intBasedProperty = intBasedProperty,
+				intBasedProperty = intBasedProperty.Value,
 				stringBasedProperty = stringBasedProperty
 			};
 
