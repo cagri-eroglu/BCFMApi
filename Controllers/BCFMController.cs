@@ -17,5 +17,24 @@ namespace BCFMApi.Controllers
 
 		[HttpGet("health")]
 		public IActionResult HealthCheck() => Ok(new { status = "Healthy", timestamp = DateTime.Now });
+
+		[HttpPost("BCFM_podst")]
+		public IActionResult PostMethod([FromBody] PostBCFMDto data)
+		{
+			if (data == null)
+			{
+				return BadRequest("Invalid data provided.");
+			}
+
+			if (string.IsNullOrEmpty(data.stringBasedProperty))
+			{
+				return BadRequest("Invalid data provided.");
+			}
+
+			return Ok(data);
+		}
+
 	}
+
+
 }
