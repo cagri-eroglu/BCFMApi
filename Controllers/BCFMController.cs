@@ -18,7 +18,7 @@ namespace BCFMApi.Controllers
 		[HttpGet("health")]
 		public IActionResult HealthCheck() => Ok(new { status = "Healthy", timestamp = DateTime.Now });
 
-		[HttpPost("BCFM_podst")]
+		[HttpPost("BCFM_post")]
 		public IActionResult PostMethod([FromBody] PostBCFMDto data)
 		{
 			if (data == null)
