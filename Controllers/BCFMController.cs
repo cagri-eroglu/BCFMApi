@@ -21,14 +21,14 @@ namespace BCFMApi.Controllers
 
 		[HttpPost("BCFMPost")]
 		public IActionResult PostMessageCombined(
-			[FromQuery] int? intBasedProperty = null,
-			[FromQuery] string stringBasedProperty = "BC4M",
+			[FromQuery] int? BCFMInt = null,
+			[FromQuery] string BCFMString= "BC4M",
 			[FromBody] PostBCFMDto data = null
 	)
 		{
-			if (data != null)
-			{
-				if (intBasedProperty == null)
+			if (data != null) { 
+			
+				if (BCFMInt == null)
 				{
 					return BadRequest("Invalid request. intBasedProp shoudldnt be null");
 				}
@@ -37,15 +37,15 @@ namespace BCFMApi.Controllers
 			}
 			else
 			{
-				if (intBasedProperty == null || string.IsNullOrEmpty(stringBasedProperty))
+				if (BCFMInt == null || string.IsNullOrEmpty(BCFMString))
 				{
 					return BadRequest("Invalid request .");
 				}
 
 				var result = new PostBCFMDto
 				{
-					intBasedProperty = intBasedProperty.Value,
-					stringBasedProperty = stringBasedProperty
+					BCFMInt = BCFMInt.Value,
+					BCFMString= BCFMString
 				};
 
 				return Ok(result);

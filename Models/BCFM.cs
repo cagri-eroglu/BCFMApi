@@ -3,7 +3,7 @@
 	public class BCFM
 	{
 		public string Msg { get; set; }
-		public int intBasedProperty { get; set; }
-		public string stringBasedProperty { get; set; }
+		public int BCFMInt { get; set; }
+		public string BCFMString { get; set; }
 	}
 }
